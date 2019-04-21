@@ -11,8 +11,8 @@ namespace IC.Base64Test
         }
         static void BasicTest()
         {
-            Console.WriteLine("Decode Test 0 >> {0}", IC.Base64.ToSting("VGhpcyBpcyB0aGUgYmFzaWMgdGVzdCAw"));
-            Console.WriteLine("Encode Test 1 >> {0}", IC.Base64.StingTo("This is the basic test 1"));
+            Console.WriteLine("Decode Test 0 >> {0}", IC.Base64.ToString("VGhpcyBpcyB0aGUgYmFzaWMgdGVzdCAw"));
+            Console.WriteLine("Encode Test 1 >> {0}", IC.Base64.StringTo("This is the basic test 1"));
         }
         static void BasicComparer()
         {
@@ -23,10 +23,10 @@ namespace IC.Base64Test
             {
                 str += pos.ToString();
                 var encode1 = Convert.ToBase64String(System.Text.Encoding.Default.GetBytes(str));
-                var encode2 = IC.Base64.StingTo(str);
+                var encode2 = IC.Base64.StringTo(str);
                 if (encode1 != encode2) EncodeFails++;
                 var decode1 = System.Text.Encoding.Default.GetString(Convert.FromBase64String(encode1));
-                var decode2 = IC.Base64.ToSting(encode2);
+                var decode2 = IC.Base64.ToString(encode2);
                 if (decode1 != decode2) EncodeFails++;
             }
 
@@ -50,7 +50,7 @@ namespace IC.Base64Test
                     res = System.Text.Encoding.Default.GetString(Convert.FromBase64String(str));
                 }
                 catch { }
-                var b = IC.Base64.ToSting(str);
+                var b = IC.Base64.ToString(str);
                 if (res != "" && res != b) EncodeFails++;
                 else if (res == "") SystemEncodeFails++;
             }
