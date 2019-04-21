@@ -93,7 +93,7 @@ namespace IC
             }
             return ret;
         }
-        public static string ToSting(string str) => System.Text.Encoding.Default.GetString(From(str));
-        public static string StingTo(string str) => To(System.Text.Encoding.Default.GetBytes(str));
+        public static string ToString(string str) => System.Text.Encoding.Default.GetString(From(str));
+        public static string StringTo(string str) => To(System.Text.Encoding.Default.GetBytes(str));
     }
 }
